@@ -1,6 +1,6 @@
-bb8b98ba755d189f48cc8611f70acf0b *DESCRIPTION
+5774c854dd950372da5a970dcde547d9 *DESCRIPTION
 1a5e758f9daa7cc52642a310088fd9ed *NAMESPACE
-bdb7f584cd586376737be152022d036c *NEWS.md
+b92fc359b1d857d784ff9f70c4bba4c1 *NEWS.md
 ca38f517dc9db94f799b147f3f9e3e02 *R/asciiml.R
 e5f38fe1ed8fd307dda0c4368ad30828 *R/browse.R
 1a8fc9ab0f1b435b5c255c8aa2733187 *R/browse.struct.R
@@ -22,7 +22,7 @@ f77e28511ebaa9f92cbe1382541502f1 *R/heal.R
 68ce5ba52bdec8ac7ac89f3f0c94a7e7 *R/list.R
 9fadd6f652e07db32200c61efcddbcbb *R/load.R
 87b09b742d4bd0914f1656ee70a07aa3 *R/ls.R
-93ce29c839027a360d9a9b5ad12d3035 *R/misc.R
+8d48e641619f7d5f1d91c476d5a845b2 *R/misc.R
 03b679c3f5f741d80b9fbb163dbf72e3 *R/onload.R
 9e48a45be905190f68f0b8d84bc270c2 *R/options.R
 e8d1e05c9c261035dae21467a8cb66b1 *R/parse.R
@@ -373,7 +373,7 @@ fbeb21bdb674a94812a676b75ba0a157 *tests/testthat/helper/refobjs/unitize_revdir2.
 4bfabb03e21fc1ea5c137554bd5c0b62 *tests/testthat/helper/refobjs/unitize_txtdir1.rds
 8b010a2c9264c1a0785643de08128193 *tests/testthat/helper/refobjs/unitize_txtop1.rds
 d1e31c6a4db171511ddfa2f0501e668b *tests/testthat/helper/refobjs/unitize_txtop2.rds
-2f365315a228f3e32b596d8c5d40fe13 *tests/testthat/helper/runtt.R
+c10f311f1f36d0a8966edef05bb03d26 *tests/testthat/helper/runtt.R
 035543c873119f53b7f7836e74d388c8 *tests/testthat/helper/sects.R
 f79fd100dabf79482ff2a530d67938bb *tests/testthat/helper/source/f1.R
 1ded5e7fb8ad2de716b55e8e43c85280 *tests/testthat/helper/source/f2.R
@@ -398,7 +398,7 @@ a018e976a65a957ea096be8333d0ba68 *tests/testthat/testthat.inpkg.R
 37c12bbdd1dfb3539e872bf4bec59240 *tests/testthat/testthat.ischecks.R
 ed3c0639454a74ea6356bf9469f110c2 *tests/testthat/testthat.item.R
 bbd462e42cc7c2de8a655003aa997640 *tests/testthat/testthat.list.R
-b6fb11c88143e7ef5ea29786d356a75c *tests/testthat/testthat.misc.R
+8fc64bc839e1782ee88f8f36260beb3b *tests/testthat/testthat.misc.R
 ef1429686904cfc7d0e133be68029fc9 *tests/testthat/testthat.options.R
 4a00d3e9d116a27e8a31612341afab8d *tests/testthat/testthat.parse.R
 9e31627bc145775c962a87c79cf45bf2 *tests/testthat/testthat.prompt.R
@@ -410,7 +410,7 @@ d6e3351ad7d4885af033d6396727a439 *tests/testthat/testthat.section.R
 d955c8a17d70b11bd6b3fcc77cb38a87 *tests/testthat/testthat.state.R
 c3365847f71f050d75cc2c83ff3be64e *tests/testthat/testthat.text.R
 38bd36fb89239d177fb8fa8e4c996280 *tests/testthat/testthat.translate.R
-4fb2c2fd5a287bd4705a03543b61cfcb *tests/testthat/testthat.unitize.R
+414614b04f9fc023c0de2555c6dd54c5 *tests/testthat/testthat.unitize.R
 21eefb0c3080530a293f48186cb6d908 *tests/testthat/testthat.unitize2.R
 531dda1255adef9c413307edfe7dd13c *tests/testthat/testthat.upgrade.R
 da81b1083fb8245ebbcc8703993098aa *tests/testthat/testthat.zzrunlast.R
