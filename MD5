@@ -1,4 +1,4 @@
-5774c854dd950372da5a970dcde547d9 *DESCRIPTION
+b92d123083b991e0f2dca5b6afe4766c *DESCRIPTION
 1a5e758f9daa7cc52642a310088fd9ed *NAMESPACE
 b92fc359b1d857d784ff9f70c4bba4c1 *NEWS.md
 ca38f517dc9db94f799b147f3f9e3e02 *R/asciiml.R
@@ -391,14 +391,14 @@ b5adba035ea3cb0ad8f385ba714b69d3 *tests/testthat/testthat.change.R
 7938d6ea215321c2e183633c00435df3 *tests/testthat/testthat.demo.R
 c90adaaae815e4ccd9631f9ce3271735 *tests/testthat/testthat.error.R
 2e88693348135326dbea7926c9566c47 *tests/testthat/testthat.exec.R
-f1a9a39faee60cf91d241183f3aa64cc *tests/testthat/testthat.get.R
+ee705819d1de7f535469a1cb74b258b1 *tests/testthat/testthat.get.R
 ad968e51f98f56e16b09addeaf229aa9 *tests/testthat/testthat.global.R
 518b92a83e48b5ddc7ab78e50ca8f502 *tests/testthat/testthat.handledruns.R
 a018e976a65a957ea096be8333d0ba68 *tests/testthat/testthat.inpkg.R
 37c12bbdd1dfb3539e872bf4bec59240 *tests/testthat/testthat.ischecks.R
 ed3c0639454a74ea6356bf9469f110c2 *tests/testthat/testthat.item.R
 bbd462e42cc7c2de8a655003aa997640 *tests/testthat/testthat.list.R
-8fc64bc839e1782ee88f8f36260beb3b *tests/testthat/testthat.misc.R
+231c9abcf8cba6a61540d7fa0cb963f7 *tests/testthat/testthat.misc.R
 ef1429686904cfc7d0e133be68029fc9 *tests/testthat/testthat.options.R
 4a00d3e9d116a27e8a31612341afab8d *tests/testthat/testthat.parse.R
 9e31627bc145775c962a87c79cf45bf2 *tests/testthat/testthat.prompt.R
