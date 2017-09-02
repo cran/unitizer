@@ -5,7 +5,7 @@ Description: Simplifies regression tests by comparing objects produced by test
     the tests pass, otherwise execution stops with error details.  If in
     interactive mode, tests can be reviewed through the provided interactive
     environment.
-Version: 1.4.3
+Version: 1.4.4
 Authors@R: c(
     person(
     "Brodie", "Gaslam", email="brodie.gaslam@yahoo.com",
@@ -31,8 +31,8 @@ Collate: 'asciiml.R' 'capture.R' 'is.R' 'global.R' 'change.R'
         'upgrade.R'
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-06-08 01:41:22 UTC; brodie
+Packaged: 2017-09-02 01:03:11 UTC; brodie
 Author: Brodie Gaslam [aut, cre]
 Maintainer: Brodie Gaslam <brodie.gaslam@yahoo.com>
 Repository: CRAN
-Date/Publication: 2017-06-08 11:52:21 UTC
+Date/Publication: 2017-09-02 03:35:48 UTC
