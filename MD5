@@ -1,6 +1,6 @@
-430e9dffe487979fbcd2d7fee527008f *DESCRIPTION
+f998684ad3f80333a0573767ad131ba3 *DESCRIPTION
 507bb205bddc86705822279e3377575a *NAMESPACE
-47e29fc1bd8d90161bd5104ef7d56328 *NEWS.md
+98b11f40790b89f7b79d7cac20f3e368 *NEWS.md
 4928886e37adfce48ee233e9e23719a4 *R/asciiml.R
 8a4ffbd6226db62259a0f23c63fc0bbc *R/browse.R
 9677f2f3c62c9598cb3248cff16f5241 *R/browse.struct.R
@@ -45,7 +45,7 @@ cdede54736527b8a4b5fd37e05f82cad *R/unitize.core.R
 8a323799571a820132f8eaaf9465acc1 *R/unitizer.R
 b10b76ab09d79614a1149da2c0fe495b *R/unitizer.add.R
 99b817a37079b186d2728549321f9fe9 *R/upgrade.R
-69ade2e9b4d41f1dcdb459b898ee619b *README.md
+fa3e79085bcb36099b63c4812f414dba *README.md
 f668c9d39e63c4c47ee3e98d67e8dfa3 *build/vignette.rds
 8fbb6fba3b80b2c02660bc50e8753b67 *demo/00Index
 12ebf27b1cbcfeded087e7cbc61ed0c2 *demo/unitizer.R
@@ -223,7 +223,7 @@ fdb40508fed95017f025b6c41a8f896f *man/unitizer_s4method_doc.Rd
 f2f2389233aa0d5348a692e31d55f47d *man/unitizer_sect.Rd
 92bb6eefe96bf4bdf4199e403a8b2c4e *man/valid_names.Rd
 40335497dc288ca4396e487866008f3e *man/validate_pre_post.Rd
-8cc611cf0d9e4832fad81b1be30c20e4 *tests/aunitizer.R
+b63ad6d01571b90b922c19f1ce195d87 *tests/aunitizer.R
 0cbc906c4f36094851a83a70e65035ad *tests/interactive/README.md
 6805efdc34e8b583a03737dc244a93d3 *tests/interactive/dontrun1.R
 66cc8f4d66801fcfbd9eab1cce756f27 *tests/interactive/run.R
@@ -274,7 +274,7 @@ d41d8cd98f00b204e9800998ecf8427e *tests/interactive/unitizer/tests3.R
 862d2f18b40462b4add8140bcc104c40 *tests/interactive/unitizer/zeroenv.fail.R
 55d73264cfe3c7c257ba2b38ff2b3436 *tests/interactive/unitizer/zeroenv.fail.unitizer/data.rds
 d34f93a2999a4a308e37b31b76262191 *tests/interactive/unitizer/zeroenv.unitizer/data.rds
-567d86b464597b72869a714954e21fca *tests/runtt.R
+221e0e302f03d61cd62755f9eb4f8ab9 *tests/runtt.R
 3a156dd6163f0eb84000f96f776b076e *tests/test_pkgs/testpkg1/testpkg1.0/DESCRIPTION
 a2628e394f491aaa0eb7d23e180dda8f *tests/test_pkgs/testpkg1/testpkg1.0/NAMESPACE
 1cde205aa27dc7089f761df99ffad423 *tests/test_pkgs/testpkg1/testpkg1.0/R/testpkg1.R
