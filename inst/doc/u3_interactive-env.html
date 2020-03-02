@@ -212,6 +212,9 @@ code > span.fu { color: #900; font-weight: bold; }
 code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
+
+
+
 </head>
 
 <body>
@@ -220,7 +223,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">unitizeR - The Interactive Environment</h1>
-<h4 class="author"><em>Brodie Gaslam</em></h4>
+<h4 class="author">Brodie Gaslam</h4>
 
 
 <div id="TOC">
@@ -318,8 +321,8 @@ unitizer&gt;</code></pre>
      |   +--  Deparsed test expression                    Test status ----+    |
      |                                                                         |
      +- Test ID                                                    User Input -+</code></pre>
-<p>The value and order of the test IDs shouldn’t mean anything to you other than being the number to type in if you wish to review that test. Tests that have a <code>*</code> to the left of the test id are expessions that are not reviewed or checked by <code>unitizer</code> (we call these <a href="unitizer_tests.html#what-constitutes-a-test">ignored tests</a>).</p>
-<p>The test status (see <a href="unitizer_tests.html#test-outcomes">tests outcomes</a>) indicates the outcome of comparison of the reference test in the <code>unitizer</code> store to the newly evaluated ones. The first four tests are ignored tests, so they do not have a status. The User Input column marks which tests have been reviewed and what the user decision was. In this case we had reviewed test #2 and decided not to keep it (hence the “N”). Typically neither ignored tests nor passed tests require user input so they will typically have a “-” as the user input, as will tests that would be reviewed, but haven’t been yet.</p>
+<p>The value and order of the test IDs shouldn’t mean anything to you other than being the number to type in if you wish to review that test. Tests that have a <code>*</code> to the left of the test id are expessions that are not reviewed or checked by <code>unitizer</code> (we call these <a href="u2_tests.html#what-constitutes-a-test">ignored tests</a>).</p>
+<p>The test status (see <a href="u2_tests.html#test-outcomes">tests outcomes</a>) indicates the outcome of comparison of the reference test in the <code>unitizer</code> store to the newly evaluated ones. The first four tests are ignored tests, so they do not have a status. The User Input column marks which tests have been reviewed and what the user decision was. In this case we had reviewed test #2 and decided not to keep it (hence the “N”). Typically neither ignored tests nor passed tests require user input so they will typically have a “-” as the user input, as will tests that would be reviewed, but haven’t been yet.</p>
 <p>Typing <code>U</code> at the review prompt will take you to the first unreviewed test. Since ignored tests and passed tests are not typically reviewed, <code>U</code> will take you to the first unreviewed test that is neither passed nor ignored.</p>
 <p>If we type 4 at the prompt, we get:</p>
 <pre><code>You are re-reviewing a test; previous selection was: &quot;N&quot;
@@ -387,7 +390,7 @@ unitizer&gt;</code></pre>
 <ul>
 <li>Even though you can see objects produced by tests, you can not actually remove them with <code>rm</code></li>
 <li>Any objects you create at the interactive prompt are only available for the test you are currenlty reviewing, so do not expect them to still be there at subsequent prompts</li>
-<li>Other subtle issues discussed at length in the (<a href="unitizer_reproducible_tests.html#test-environments">reproducible tests vignette</a>)</li>
+<li>Other subtle issues discussed at length in the (<a href="u4_reproducible-tests.html#test-environments">reproducible tests vignette</a>)</li>
 <li>There are special <code>unitizer</code> objects <code>.new</code>, <code>.NEW</code>, <code>.ref</code>, and <code>.REF</code> that let you review the results of tests (we will discuss these next)</li>
 <li><code>ls</code> is over-ridden by a special <code>unitizer</code> version (we will also dicuss this next)</li>
 <li>You will have access to any objects created through the <code>pre</code> argument to <code>unitize</code>, though they will not show up in a call to <code>ls</code></li>
@@ -445,7 +448,7 @@ attr(,&quot;class&quot;)
 <li><code>'</code> Object existed during reference test evaluation, and still does, but it has a different value than it did during reference test evaluation</li>
 <li><code>**</code> Object exists now, but did not exist during reference test evaluation</li>
 </ul>
-<p>For more discussion see <code>?&quot;healEnvs,unitizerItems,unitizer-method&quot;</code> and the discussion of <a href="vgn06nittygritty.html#patchwork-reference-environments">patchwork reference environments</a>.</p>
+<p>For more discussion see <code>?&quot;healEnvs,unitizerItems,unitizer-method&quot;</code> and the discussion of <a href="u4_reproducible-tests.html#patchwork-reference-environments">patchwork reference environments</a>.</p>
 <p>Objects assigned right before a test are part of that test’s environment so will always be available.</p>
 </div>
 </div>

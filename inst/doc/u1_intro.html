@@ -18,7 +18,7 @@
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; position: absolute; }
@@ -82,7 +82,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -278,6 +300,9 @@ code > span.fu { color: #900; font-weight: bold; }
 code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
+
+
+
 </head>
 
 <body>
@@ -286,7 +311,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">unitizer - Interactive R Unit Tests</h1>
-<h4 class="author"><em>Brodie Gaslam</em></h4>
+<h4 class="author">Brodie Gaslam</h4>
 
 
 <div id="TOC">
@@ -375,7 +400,7 @@ demo(unitizer)</code></pre>
 <ul>
 <li><code>help(package=&quot;unitizer&quot;)</code>, in particular <code>?unitize</code></li>
 <li><code>demo(package=&quot;unitizer&quot;)</code></li>
-<li><a href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/brodieG/unitizer/master/inst/doc/unitizer_index.html"><code>browseVignettes(&quot;unitizer&quot;)</code></a> for a list of vignettes, or skip straight to the <a href="http://htmlpreview.github.io/?https://raw.githubusercontent.com/brodieG/unitizer/master/inst/doc/unitizer.html">Introduction vignette</a></li>
+<li><a href="u0_unitizer_index.html"><code>browseVignettes(&quot;unitizer&quot;)</code></a> for a list of vignettes, or skip straight to the <a href="u1_intro.html">Introduction vignette</a></li>
 </ul>
 </div>
 <div id="how-does-unitizer-differ-from-testthat" class="section level2">
@@ -441,11 +466,11 @@ unitize()              # Will prompt for a file to `unitize`</code></pre>
 <h2>Things You Should Know About <code>unitizer</code></h2>
 <div id="unitizer-writes-to-your-filesystem" class="section level3">
 <h3><code>unitizer</code> Writes To Your Filesystem</h3>
-<p>The <code>unitize</code>d tests need to be saved someplace, and the default action is to save to the same directory as the test file. You will always be prompted by <code>unitizer</code> before it writes to your file system. See <a href="unitizer_miscellaneous.html#storing-unitized-tests">storing <code>unitized</code> tests</a> for implications and alternatives.</p>
+<p>The <code>unitize</code>d tests need to be saved someplace, and the default action is to save to the same directory as the test file. You will always be prompted by <code>unitizer</code> before it writes to your file system. See <a href="u5_miscellaneous.html#storing-unitized-tests">storing <code>unitized</code> tests</a> for implications and alternatives.</p>
 </div>
 <div id="tests-pass-if-they-all.equal-stored-reference-values" class="section level3">
 <h3>Tests Pass If They <code>all.equal</code> Stored Reference Values</h3>
-<p>Once you have created your first <code>unitizer</code> with <code>unitize</code>, subsequent calls to <code>unitize</code> will compare the old stored value to the new one using <code>all.equal</code>. You can change the comparison function by using <code>unitizer_sect</code> (see <a href="unitizer_tests.html">tests vignette</a>).</p>
+<p>Once you have created your first <code>unitizer</code> with <code>unitize</code>, subsequent calls to <code>unitize</code> will compare the old stored value to the new one using <code>all.equal</code>. You can change the comparison function by using <code>unitizer_sect</code> (see <a href="u2_tests.html">tests vignette</a>).</p>
 </div>
 <div id="test-expressions-are-stored-deparsed" class="section level3">
 <h3>Test Expressions Are Stored Deparsed</h3>
@@ -465,7 +490,7 @@ unitize()              # Will prompt for a file to `unitize`</code></pre>
 <li>Options</li>
 <li>Loaded namespaces</li>
 </ul>
-<p>State management is turned off by default because it requires tracing some base functions which is against CRAN policy. If you wish to enable this feature use <code>unitize(..., state='recommended')</code> or <code>options(unitizer.state='recommended')</code>. For more details see <code>?unitizerState</code> and the <a href="unitizer_reproducible_tests.html">reproducible tests vignette</a>.</p>
+<p>State management is turned off by default because it requires tracing some base functions which is against CRAN policy. If you wish to enable this feature use <code>unitize(..., state='recommended')</code> or <code>options(unitizer.state='recommended')</code>. For more details see <code>?unitizerState</code> and the <a href="u4_reproducible-tests.html">reproducible tests vignette</a>.</p>
 </div>
 <div id="beware-of-force-quitting-from-unitizer" class="section level3">
 <h3>Beware of Force Quitting from <code>unitizer</code></h3>
@@ -479,11 +504,11 @@ unitize()              # Will prompt for a file to `unitize`</code></pre>
 <h3><code>unitizer</code> Is Complex</h3>
 <p>In order to re-create the feel of the R prompt within <code>unitizer</code> we resorted to a fair bit of trickery. For the most part this should be transparent to the user, but you should be aware it exists in the event something unexpected happens that exposes it. Here is a non-exhaustive list of some of the tricky things we do:</p>
 <ul>
-<li>Each tests is evaluated in its own environment, a child of the previous test’s environment; because R looks up objects in parent environments it appears that all tests are evaluated in one environment (see <a href="unitizer_interactive_env.html">interactive environment vignette</a>)</li>
-<li>We provide modified versions of <code>quit</code>/<code>q</code> and <code>ls</code> (see <a href="unitizer_miscellaneous.html">esoteric topics vignette</a>) at the <code>unitizer</code> prompt</li>
+<li>Each tests is evaluated in its own environment, a child of the previous test’s environment; because R looks up objects in parent environments it appears that all tests are evaluated in one environment (see <a href="u3_interactive-env.html">interactive environment vignette</a>)</li>
+<li>We provide modified versions of <code>quit</code>/<code>q</code> and <code>ls</code> (see <a href="u5_miscellaneous.html">esoteric topics vignette</a>) at the <code>unitizer</code> prompt</li>
 <li><code>traceback</code> should work when reviewing tests that produce errors, but only because we capture the trace with <code>sys.calls</code> and write it to <code>base::.Traceback</code> during review</li>
 <li><code>.Last.value</code> will not work</li>
-<li>We sink <code>stdout</code> and <code>stderr</code> during test evaluation to capture those streams (see <a href="unitizer_tests.html">details on tests vignette</a>), though we take care to do so responsibly</li>
+<li>We sink <code>stdout</code> and <code>stderr</code> during test evaluation to capture those streams (see <a href="u2_tests.html">details on tests vignette</a>), though we take care to do so responsibly</li>
 <li>We parse the test file and extract comments so that they can be attached to the correct test for review</li>
 <li>The history file is temporary replaced so that your <code>unitizer</code> interactions do not pollute it</li>
 </ul>
@@ -494,14 +519,14 @@ unitize()              # Will prompt for a file to `unitize`</code></pre>
 </div>
 <div id="avoid-running-unitize-within-try-trycatch-blocks" class="section level3">
 <h3>Avoid running <code>unitize</code> within <code>try</code> / <code>tryCatch</code> Blocks</h3>
-<p>Doing so will cause <code>unitize</code> to quit if any test expressions throw conditions. See discussion in <a href="unitizer_miscellaneous.html#running-unitize-within-error-handling-blocks">error handling</a>.</p>
+<p>Doing so will cause <code>unitize</code> to quit if any test expressions throw conditions. See discussion in <a href="u5_miscellaneous.html#running-unitize-within-error-handling-blocks">error handling</a>.</p>
 </div>
 <div id="some-base-functions-are-masked-at-the-unitizer-prompt" class="section level3">
 <h3>Some Base Functions are Masked at the <code>unitizer</code> Prompt</h3>
 <p><code>q</code> and <code>quit</code> are masked to give the user an opportunity to cancel the quit action in case they meant to quit from <code>unitizer</code> instead of R. Use Q to quit from <code>unitizer</code>, as you would from <code>browser</code>.</p>
 <p><code>ls</code> is masked with a specialized version for use in <code>unitizer</code>.</p>
 <p>In both cases you can still access the original functions by preceding them with <code>base::</code></p>
-<p>See <a href="unitizer_miscellaneous.html#overriden-functions">miscellanous topics vignette</a>.</p>
+<p>See <a href="u5_miscellaneous.html#overriden-functions">miscellaneous topics vignette</a>.</p>
 </div>
 </div>
 
