@@ -316,12 +316,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="TOC">
 <ul>
-<li><a href="#introduction">Introduction</a><ul>
 <li><a href="#tldr">TL;DR</a></li>
-<li><a href="#why-another-testing-framework">Why Another Testing Framework?</a></li>
+<li><a href="#why-another-testing-framework">Why Another Testing Framework?</a><ul>
+<li><a href="#automated-test-formalization">Automated Test Formalization</a></li>
+<li><a href="#streamlined-debugging">Streamlined Debugging</a></li>
+<li><a href="#fast-test-updates">Fast Test Updates</a></li>
 </ul></li>
-<li><a href="#usage">Usage</a></li>
-<li><a href="#documentation">Documentation</a></li>
 <li><a href="#how-does-unitizer-differ-from-testthat">How Does <code>unitizer</code> Differ from <code>testthat</code>?</a><ul>
 <li><a href="#testing-style">Testing Style</a></li>
 <li><a href="#converting-testthat-tests-to-unitizer">Converting <code>testthat</code> tests to <code>unitizer</code></a></li>
@@ -342,27 +342,26 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </ul>
 </div>
 
-<div id="introduction" class="section level2">
-<h2>Introduction</h2>
-<div id="tldr" class="section level3">
-<h3>TL;DR</h3>
-<p><code>unitizer</code> simplifies creating, reviewing, and debugging unit tests in R. To install:</p>
-<pre><code>install.packages('unitizer')</code></pre>
-<p>Please keep in mind this is an experimental framework that has been thoroughly tested by <em>one</em> person.</p>
-<p><code>unitizer</code> bakes in a lot of contextual help so you can get started without reading all the documentation. Try the demo to get an idea:</p>
-<pre><code>library(unitizer)
-demo(unitizer)</code></pre>
+<div id="tldr" class="section level2">
+<h2>TL;DR</h2>
+<p><code>unitizer</code> simplifies creation, review, and debugging of tests in R. It automatically stores R expressions and the values they produce, so explicit expectations are unnecessary. Every test is easy to write with <code>unitizer</code> because testing and using a function are the same. This encourages non-trivial tests that better represent actual usage.</p>
+<p>Tests fail when the value associated with an expression changes. In interactive mode you are dropped directly into the failing test environment so you may debug it.</p>
+<p><code>unitizer</code> is on CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">'unitizer'</span>)</a></code></pre></div>
+<p>It bakes in a lot of contextual help so you can get started without reading all the documentation. Try the demo to get an idea:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(unitizer)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">demo</span>(unitizer)</a></code></pre></div>
 <p>Or check out the <a href="http://htmlpreview.github.io/?https://github.com/brodieG/unitizer/blob/rc/extra/gifshow.html">screencast</a> to see <code>unitizer</code> in action.</p>
 </div>
-<div id="why-another-testing-framework" class="section level3">
-<h3>Why Another Testing Framework?</h3>
-<div id="automated-test-formalization" class="section level4">
-<h4>Automated Test Formalization</h4>
-<p>Are you tired of the <code>deparse</code>/<code>dput</code> then copy-paste R objects into test file dance, or do you use <code>testthat::expect_equal_to_reference</code> a lot?</p>
-<p>With <code>unitizer</code> you review function output at an interactive prompt as you would with informal tests. You then store the value, conditions ( e.g. warnings, etc.), and environment for use as the reference values in formal tests, all with a single keystroke.</p>
+<div id="why-another-testing-framework" class="section level2">
+<h2>Why Another Testing Framework?</h2>
+<div id="automated-test-formalization" class="section level3">
+<h3>Automated Test Formalization</h3>
+<p>Are you tired of the <code>deparse</code>/<code>dput</code> then copy-paste R objects into test file dance, or do you use <code>testthat::expect_equal_to_reference</code> or other snapshot testing a lot?</p>
+<p>With <code>unitizer</code> you interactively review your code, as you would when informally testing it by typing it at the R prompt. Then, with a single keystroke, <code>unitizer</code> stores the code, the value and any conditions (warnings, errors, etc.) it produced, and turns the lot into a formal regression test.</p>
 </div>
-<div id="streamlined-debugging" class="section level4">
-<h4>Streamlined Debugging</h4>
+<div id="streamlined-debugging" class="section level3">
+<h3>Streamlined Debugging</h3>
 <p>Do you wish the nature of a test failure was more immediately obvious?</p>
 <p>When tests fail, you are shown a proper <a href="https://github.com/brodieG/diffobj">diff</a> so you can clearly identify <em>how</em> the test failed:</p>
 <div class="figure">
@@ -376,32 +375,11 @@ demo(unitizer)</code></pre>
 <p class="caption">review example</p>
 </div>
 </div>
-<div id="fast-test-updates" class="section level4">
-<h4>Fast Test Updates</h4>
+<div id="fast-test-updates" class="section level3">
+<h3>Fast Test Updates</h3>
 <p>Do you avoid improvements to your functions because that would require painstakingly updating many tests?</p>
 <p>The diffs for the failed tests let you immediately confirm only what you intended changed. Then you can update each test with a single keystroke.</p>
 </div>
-</div>
-</div>
-<div id="usage" class="section level2">
-<h2>Usage</h2>
-<p><code>unitizer</code> stores R expressions and the result of evaluating them so that it can detect code regressions. This is akin to saving test output to a <code>.Rout.save</code> file as documented in <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Package-subdirectories">Writing R Extensions</a>, except that we’re storing the actual R objects and it is much easier to review them.</p>
-<p>To use <code>unitizer</code>:</p>
-<ul>
-<li>Write test expressions as you would when informally testing code on the command line, and save them to a file (e.g. “my_file_name.R”)</li>
-<li>Run <code>unitize(&quot;my_file_name.R&quot;)</code> and follow the prompts</li>
-<li>Continue developing your package</li>
-<li>Re-run <code>unitize(&quot;my_file_name.R&quot;)</code>; if any tests fail you will be able to review and debug them in an interactive prompt</li>
-</ul>
-<p><code>unitizer</code> can run in a non-interactive mode for use with <code>R CMD check</code>.</p>
-</div>
-<div id="documentation" class="section level2">
-<h2>Documentation</h2>
-<ul>
-<li><code>help(package=&quot;unitizer&quot;)</code>, in particular <code>?unitize</code></li>
-<li><code>demo(package=&quot;unitizer&quot;)</code></li>
-<li><a href="u0_unitizer_index.html"><code>browseVignettes(&quot;unitizer&quot;)</code></a> for a list of vignettes, or skip straight to the <a href="u1_intro.html">Introduction vignette</a></li>
-</ul>
 </div>
 <div id="how-does-unitizer-differ-from-testthat" class="section level2">
 <h2>How Does <code>unitizer</code> Differ from <code>testthat</code>?</h2>
@@ -421,17 +399,19 @@ log10(letters)                            # input error
 log10(vec)                                # succeed with warnings</code></pre>
 <p>These two unit test implementations are functionally equivalent. There are benefits to both approaches. In favor of <code>unitizer</code>:</p>
 <ul>
-<li>Tests are easy to write</li>
-<li>Conditions are captured automatically, with no need for special handling</li>
-<li>You can immediately review failing tests in an interactive environment</li>
-<li>Updating tests when function output legitimately changes is easy</li>
+<li>Tests are easy to write.</li>
+<li>Tests with non-trivial outputs are easy to write, which encourages more realistic testing of functionality.</li>
+<li>Conditions are captured automatically, with no need for special handling.</li>
+<li>You can immediately review failing tests in an interactive environment.</li>
+<li>Updating tests when function output legitimately changes is easy.</li>
 </ul>
 <p>In favor of <code>testthat</code>:</p>
 <ul>
-<li>The tests are self documenting; expected results are obvious</li>
-<li>Once you write the test you are done; with <code>unitizer</code> you still need to <code>unitize</code> and review the tests</li>
+<li>The tests are self documenting; expected results are obvious.</li>
+<li>Once you write the test you are done; with <code>unitizer</code> you still need to <code>unitize</code> and review the tests.</li>
+<li>Tests are usually all-plain text, whereas <code>unitizer</code> stores reference values in binary RDSes (see <a href="u5_miscellaneous.html#collaborating-with-unitizer">Collaborating with Unitizer</a>).</li>
 </ul>
-<p><code>unitizer</code> is particularly convenient when the tests return complex objects (e.g as <code>lm</code> does) or produce conditions. There is no need for complicated assertions involving deparsed objects.</p>
+<p><code>unitizer</code> is particularly convenient when the tests return complex objects (e.g as <code>lm</code> does) and/or produce conditions. There is no need for complicated assertions involving deparsed objects, or different workflows for snapshots.</p>
 </div>
 <div id="converting-testthat-tests-to-unitizer" class="section level3">
 <h3>Converting <code>testthat</code> tests to <code>unitizer</code></h3>
@@ -479,6 +459,11 @@ unitize()              # Will prompt for a file to `unitize`</code></pre>
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">test_me</span>(num.var)          <span class="co"># safe</span></a></code></pre></div>
 <p>Instead of:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">test_me</span>(<span class="fl">14523.2342520</span>)    <span class="co"># could be deparsed differently</span></a></code></pre></div>
+<p>Similarly issues may arise with non-ASCII characters, so use:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">chr &lt;-<span class="st"> &quot;hello\u044F&quot;</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">fun_to_test</span>(chr)</a></code></pre></div>
+<p>Instead of:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">fun_to_test</span>(<span class="st">&quot;hello\u044F&quot;</span>) <span class="co"># could be deparsed differently</span></a></code></pre></div>
 </div>
 <div id="increase-reproducibility-with-advanced-state-management" class="section level3">
 <h3>Increase Reproducibility with Advanced State Management</h3>
@@ -490,7 +475,7 @@ unitize()              # Will prompt for a file to `unitize`</code></pre>
 <li>Options</li>
 <li>Loaded namespaces</li>
 </ul>
-<p>State management is turned off by default because it requires tracing some base functions which is against CRAN policy. If you wish to enable this feature use <code>unitize(..., state='recommended')</code> or <code>options(unitizer.state='recommended')</code>. For more details see <code>?unitizerState</code> and the <a href="u4_reproducible-tests.html">reproducible tests vignette</a>.</p>
+<p>State management is turned off by default because it requires tracing some base functions which is against CRAN policy. If you wish to enable this feature use <code>unitize(..., state='suggested')</code> or <code>options(unitizer.state='suggested')</code>. For more details see <code>?unitizerState</code> and the <a href="u4_reproducible-tests.html">reproducible tests vignette</a>.</p>
 </div>
 <div id="beware-of-force-quitting-from-unitizer" class="section level3">
 <h3>Beware of Force Quitting from <code>unitizer</code></h3>

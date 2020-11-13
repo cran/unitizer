@@ -279,13 +279,13 @@ reference values from the store. Overwrite with new results ([Y]es, [N]o,
 [P]rev, [B]rowse, [R]erun, [Q]uit, [H]elp)?</code></pre>
 <p>This clearly lays out all the special commands available to us:</p>
 <ul>
-<li><code>Y</code> will accept the new value as the correct reference value to use for a test</li>
-<li><code>N</code> will keep the previous reference value as the reference value for future tests</li>
-<li><code>P</code> takes us back to the previously reviewed test (see “Test Navigation” next)</li>
-<li><code>B</code> allows us to navigate to any previously reviewed test (see “Test Navigation” next)</li>
-<li><code>R</code> toggles re-run mode; when you complete review or exit, <code>unitizer</code> will re-run the tests, which is useful if you made changes to your source code and re-installed your package from the <code>unitizer</code> prompt</li>
-<li><code>Q</code> quits <code>unitizer</code> (see “Quitting <code>unitizer</code>”)</li>
-<li><code>H</code> provides contextual help</li>
+<li><code>Y</code> will accept the new value as the correct reference value to use for a test.</li>
+<li><code>N</code> will keep the previous reference value as the reference value for future tests.</li>
+<li><code>P</code> takes us back to the previously reviewed test (see “Test Navigation” next).</li>
+<li><code>B</code> allows us to navigate to any previously reviewed test (see “Test Navigation” next).</li>
+<li><code>R</code> toggles re-run mode; when you complete review or exit, <code>unitizer</code> will re-run the tests, which is useful if you made changes to your source code and re-installed your package from the <code>unitizer</code> prompt.</li>
+<li><code>Q</code> quits <code>unitizer</code> (see “Quitting <code>unitizer</code>”).</li>
+<li><code>H</code> provides contextual help.</li>
 </ul>
 <p>If you type any of those letters into the <code>unitizer</code> prompt you will cause <code>unitizer</code> to respond as described above instead of evaluating the expression as it would be at the normal R console prompt. If you have a variable assigned to one of those letters and you wish to access it, you can do so with any of <code>get</code>, <code>(</code>, <code>print</code>, etc. For example, suppose we stored something in <code>Y</code>, then to access it all these commands would work:</p>
 <ul>
@@ -371,8 +371,8 @@ unitizer&gt;</code></pre>
 <h3>Quitting <code>unitizer</code></h3>
 <p>At any point you may quit <code>unitizer</code> by typing <code>Q</code> at the <code>unitizer</code> prompt. If you have already reviewed tests, you will be given the opportunity to save what you have done so far as you would when finalizing the <code>unitizer</code>. Note that if you chose to quit <code>unitizer</code> may exit without giving you the opportunity to review the tests. This will happen if:</p>
 <ul>
-<li>You did not make any changes to the <code>unitizer</code> (e.g. if you chose <code>N</code> at failed tests, you are keeping the reference value, so the <code>unitizer</code> is not actually changing)</li>
-<li>And test evaluation took less than <code>getOption(&quot;unitizer.prompt.b4.quit.time&quot;)</code> seconds (currently 10 seconds)</li>
+<li>You did not make any changes to the <code>unitizer</code> (e.g. if you chose <code>N</code> at failed tests, you are keeping the reference value, so the <code>unitizer</code> is not actually changing).</li>
+<li>And test evaluation took less than <code>getOption(&quot;unitizer.prompt.b4.quit.time&quot;)</code> seconds (currently 10 seconds).</li>
 </ul>
 <p>Note that if you quit using <code>quit()</code> or <code>q()</code> you will lose any unsaved changes. The same will happen if you interrupt evaluation with CTRL+C (or ESC in RStudio), or if you are in a debugged function and quit the browser with ‘Q’.</p>
 </div>
@@ -386,14 +386,15 @@ unitizer&gt;</code></pre>
 <div id="as-compared-to-the-standard-r-prompt" class="section level3">
 <h3>As Compared To The Standard R Prompt</h3>
 <p>The <code>unitizer</code> prompt is designed to emulate the standard R prompt. For the most part you can type any expression that you would type at the R prompt and get the same result as you would there. This means you can examine the objects created by your test script, run R computations, etc.</p>
-<p>There are, however, some suble differences created by the structure of the evaluation environments <code>unitizer</code> uses:</p>
+<p>There are, however, some subtle differences created by the structure of the evaluation environments <code>unitizer</code> uses:</p>
 <ul>
-<li>Even though you can see objects produced by tests, you can not actually remove them with <code>rm</code></li>
-<li>Any objects you create at the interactive prompt are only available for the test you are currenlty reviewing, so do not expect them to still be there at subsequent prompts</li>
-<li>Other subtle issues discussed at length in the (<a href="u4_reproducible-tests.html#test-environments">reproducible tests vignette</a>)</li>
-<li>There are special <code>unitizer</code> objects <code>.new</code>, <code>.NEW</code>, <code>.ref</code>, and <code>.REF</code> that let you review the results of tests (we will discuss these next)</li>
-<li><code>ls</code> is over-ridden by a special <code>unitizer</code> version (we will also dicuss this next)</li>
-<li>You will have access to any objects created through the <code>pre</code> argument to <code>unitize</code>, though they will not show up in a call to <code>ls</code></li>
+<li>Even though you can see objects produced by tests, you can not actually remove them with <code>rm</code>.</li>
+<li>Any objects you create at the interactive prompt are only available for the test you are currently reviewing, so do not expect them to still be there at subsequent prompts.</li>
+<li>All expressions are evaluated with <code>options(warn=1)</code> or greater.</li>
+<li>Other subtle issues discussed at length in the <a href="u4_reproducible-tests.html#test-environments">Reproducible Tests Vignette</a>.</li>
+<li>There are special <code>unitizer</code> objects <code>.new</code>, <code>.NEW</code>, <code>.ref</code>, and <code>.REF</code> that let you review the results of tests (we will discuss these next).</li>
+<li><code>ls</code> is over-ridden by a special <code>unitizer</code> version (we will also discuss this next); you can use <code>base::ls</code> if you need the original.</li>
+<li>You will have access to any objects created through the <code>pre</code> argument to <code>unitize</code>, though they will not show up in a call to <code>ls</code>.</li>
 </ul>
 </div>
 <div id="new-and-.ref" class="section level3">
@@ -401,20 +402,20 @@ unitizer&gt;</code></pre>
 <p>As we saw in the demo there are special objects available at the prompt: <code>.new</code> (except for removed/deleted tests), and for all but new tests, <code>.ref</code>. These objects contain the values produced by the newly evaluated test (<code>.new</code>) and by the test when it was previously run and accepted (<code>.ref</code>). <code>.new</code> might seem a bit superfluous since the user can always re-evaluate the test expression at the <code>unitizer</code> prompt to review the value, but if that evaluation is slow you can save a little time by using <code>.new</code>. <code>.ref</code> is the only option you have to see what the test used to produce back when it was first accepted into the <code>unitizer</code> store.</p>
 <p><code>.new</code> and <code>.ref</code> contain the values produced by the tests, but sometimes it is useful to access other aspects of the test evaluation. To do so you can use <code>.NEW</code> and <code>.REF</code>:</p>
 <ul>
-<li><code>.NEW</code> prints general information about the test</li>
-<li><code>.NEW$value</code> returns the test value; equivalent to typing <code>.new</code> at the prompt</li>
-<li><code>.NEW$conditions</code> returns the list of conditions produced by the test</li>
-<li><code>.NEW$messsage</code> returns the stderr captured during test evaluation</li>
-<li><code>.NEW$output</code> returns the screen output captured during test evaluation (note often this will be similar to what you get from <code>.new</code> or <code>.NEW$value</code> since typing those expressions at the prompt leads to the value being printed)</li>
-<li><code>.NEW$call</code> returns the test expression</li>
-<li><code>.NEW$aborted</code> returns whether the test expression invoked an “abort” restart (e.g. called <code>stop</code> at some point)</li>
+<li><code>.NEW</code> prints general information about the test.</li>
+<li><code>.NEW$value</code> returns the test value; equivalent to typing <code>.new</code> at the prompt.</li>
+<li><code>.NEW$conditions</code> returns the list of conditions produced by the test.</li>
+<li><code>.NEW$messsage</code> returns the stderr captured during test evaluation.</li>
+<li><code>.NEW$output</code> returns the screen output captured during test evaluation (note often this will be similar to what you get from <code>.new</code> or <code>.NEW$value</code> since typing those expressions at the prompt leads to the value being printed).</li>
+<li><code>.NEW$call</code> returns the test expression.</li>
+<li><code>.NEW$aborted</code> returns whether the test expression invoked an “abort” restart (e.g. called <code>stop</code> at some point).</li>
 </ul>
 <p>You can substitute <code>.REF</code> for <code>.NEW</code> in any of the above, provided that <code>.REF</code> is defined (i.e. that will not work when you are reviewing new tests since there is no corresponding reference test for those by definition).</p>
 <p>If both <code>.NEW</code> and <code>.REF</code> are defined, then <code>.DIFF</code> will be defined too. <code>.DIFF</code> has the same structure as <code>.NEW</code> and it contains the result of evaluating <code>diffobj::diffObj</code> between each component of <code>.NEW</code> and <code>.REF</code>. <code>.diff</code> is shorthand for <code>.DIFF$value</code>. If there are state differences (e.g. search path) you will be able to view those with <code>.DIFF$state</code>.</p>
 </div>
 <div id="ls" class="section level3">
 <h3><code>ls</code></h3>
-<p>Using <code>ls</code> at the <code>unitizer</code> prompt calls an <code>unitizer</code> version of the function. This is what happens when we type <code>ls()</code> at the first failed test in the <code>unitizer</code> we’ve been reviewing in this vignette:</p>
+<p>Using <code>ls</code> at the <code>unitizer</code> prompt calls an <code>unitizer</code> version of the function (you can call the original with <code>base::ls()</code>). This is what happens when we type <code>ls()</code> at the first failed test in the <code>unitizer</code> we’ve been reviewing in this vignette:</p>
 <pre><code>$`objects in new test env:`
 [1] &quot;res&quot; &quot;x&quot;   &quot;y&quot;
 
@@ -448,7 +449,7 @@ attr(,&quot;class&quot;)
 <li><code>'</code> Object existed during reference test evaluation, and still does, but it has a different value than it did during reference test evaluation</li>
 <li><code>**</code> Object exists now, but did not exist during reference test evaluation</li>
 </ul>
-<p>For more discussion see <code>?&quot;healEnvs,unitizerItems,unitizer-method&quot;</code> and the discussion of <a href="u4_reproducible-tests.html#patchwork-reference-environments">patchwork reference environments</a>.</p>
+<p>For more discussion see <code>?&quot;healEnvs,unitizerItems,unitizer-method&quot;</code> and the discussion of <a href="u4_reproducible-tests.html#patchwork-reference-environments">Patchwork Reference Environments</a>.</p>
 <p>Objects assigned right before a test are part of that test’s environment so will always be available.</p>
 </div>
 </div>
