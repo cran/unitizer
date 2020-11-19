@@ -1,6 +1,6 @@
-594c934e0aede4008a8e279a08a982c6 *DESCRIPTION
+e4c0d275dd11f729dea757dc3ee01c97 *DESCRIPTION
 507bb205bddc86705822279e3377575a *NAMESPACE
-b1f9d9c65cac99e6995c93a07fb13492 *NEWS.md
+bbea6149aeefd794382182d89061acb0 *NEWS.md
 7c070d54aec149de450a3b0b0e108d57 *R/asciiml.R
 1053e5c6636075c38e25b07bc995e0c7 *R/browse.R
 bb974ebe914a48ef131686d3b291b6c5 *R/browse.struct.R
@@ -25,7 +25,7 @@ a13f58f36d4fd67e8934d73e41163f78 *R/ls.R
 33145434ee1c06c41c6766b7d5b052a6 *R/misc.R
 a39ddac17c68a1411abd2e1ab77ecbad *R/onload.R
 2e177c309d4bb1ae4aeafbeb96b0b21f *R/options.R
-62f91c8e85462bbd76ae64dba6985517 *R/parse.R
+d166b363d49f2591738f0098fb29345e *R/parse.R
 ca8eb6ae7ac0d9adafc75f4c7993f813 *R/prompt.R
 2e6e4445eeba760e0e16d2ab66921957 *R/rename.R
 db323602c36025475a27d329006afc26 *R/repairenvs.R
@@ -49,14 +49,14 @@ fd3d8e2a879619e74acab2b5def59ba3 *README.md
 d574b2112b0989083df5c227e958b8ea *build/vignette.rds
 8fbb6fba3b80b2c02660bc50e8753b67 *demo/00Index
 2246dc843cfa61de5e51da574cb7a19e *demo/unitizer.R
-ffd99dc97319237782081dc17cc16f17 *inst/doc/rmdhunks/intro.Rmd
+b7b977bc5e5ba8b88c2dbf4184cd2709 *inst/doc/rmdhunks/intro.Rmd
 6877d0d22e41065f71e31ff6096c38ef *inst/doc/rmdhunks/usage.Rmd
 581d1fb1675e0bbfa63680e7b496a177 *inst/doc/styles.css
 77c3c89384af0dc551e34f166553c899 *inst/doc/u0_unitizer_index.Rmd
 7f3000aee2ce88e3b5a2e0cee2d73f8a *inst/doc/u0_unitizer_index.html
 2811a84a6a248e3e9f26329bb2e27dba *inst/doc/u1_intro.R
 5f3587e0ec1b25b6b743110330899bdc *inst/doc/u1_intro.Rmd
-ec0caff61c03b599c49cc3d74b1bb677 *inst/doc/u1_intro.html
+f57e54846690176c6c28c63b89c0cc29 *inst/doc/u1_intro.html
 a6c4714e65549ae4033e5202c7a860b6 *inst/doc/u2_tests.Rmd
 abc0425f93f2567cef383e1f476974d2 *inst/doc/u2_tests.html
 6464237ec08964616f4e9c296e781fa3 *inst/doc/u3_interactive-env.Rmd
@@ -372,7 +372,7 @@ a1acff156c323e5abf15daf477746d3a *tests/testthat/testthat.ischecks.R
 7f2699bc90e9b867717e103b262c11e9 *tests/testthat/testthat.list.R
 151de94cfcc97cfb8844825bbd2d7f94 *tests/testthat/testthat.misc.R
 ef1429686904cfc7d0e133be68029fc9 *tests/testthat/testthat.options.R
-a171b6c48f3e4ebf4c749183303799fc *tests/testthat/testthat.parse.R
+78a3590ac379d5f9ac874df61eb075f3 *tests/testthat/testthat.parse.R
 8ae10a27dc7803906aa6cd4eaf724957 *tests/testthat/testthat.prompt.R
 ecd79eed1cb1aac1d5ffbc4a4b1d2956 *tests/testthat/testthat.random.R
 e9c9b250e78ce4bb573c59967be86448 *tests/testthat/testthat.rrename.R
@@ -396,7 +396,7 @@ f5142e8ab81af68f09a66fb406794df3 *tests/unitizer/tests2.unitizer/data.rds
 4b2780200ba57e09b6d7e3af98d57b27 *tests/unitizer/translate.unitizer/data.rds
 d8d1fdffdc0dff106d74472b21e787c2 *tests/unitizer/translate_extra/translate1.R
 7a20a8430b5bb3eaddac7b51d0cfcc03 *tests/unitizer/translate_extra/translate2.R
-ffd99dc97319237782081dc17cc16f17 *vignettes/rmdhunks/intro.Rmd
+b7b977bc5e5ba8b88c2dbf4184cd2709 *vignettes/rmdhunks/intro.Rmd
 6877d0d22e41065f71e31ff6096c38ef *vignettes/rmdhunks/usage.Rmd
 581d1fb1675e0bbfa63680e7b496a177 *vignettes/styles.css
 77c3c89384af0dc551e34f166553c899 *vignettes/u0_unitizer_index.Rmd
