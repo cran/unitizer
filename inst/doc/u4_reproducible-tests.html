@@ -15,6 +15,54 @@
 
 <title>unitizeR - Reproducible Tests</title>
 
+<style type="text/css">
+a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
+a.anchor-section::before {content: '#';}
+.hasAnchor:hover a.anchor-section {visibility: visible;}
+</style>
+<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
+document.addEventListener('DOMContentLoaded', function() {
+  // Do nothing if AnchorJS is used
+  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
+    return;
+  }
+
+  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+  // Do nothing if sections are already anchored
+  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
+    return null;
+  }
+
+  // Use section id when pandoc runs with --section-divs
+  const section_id = function(x) {
+    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
+            ? x.id : '');
+  };
+
+  // Add anchors
+  h.forEach(function(x) {
+    const id = x.id || section_id(x.parentElement);
+    if (id === '') {
+      return null;
+    }
+    let anchor = document.createElement('a');
+    anchor.href = '#' + id;
+    anchor.classList = ['anchor-section'];
+    x.classList.add('hasAnchor');
+    x.appendChild(anchor);
+  });
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 
@@ -293,17 +341,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div id="test-environments" class="section level3">
 <h3>Test Environments</h3>
 <p>In order to allow review of each test in its original evaluation environment, each test is evaluated in a separate environment. Each of these environments has for parent the environment of the previous test. This means that a test has access to all the objects created/used by earlier tests, but not objects created/used by subsequent tests. When a later test “modifies” an existing object, the existing object is not really modified; rather, the test creates a new object of the same name in the child environment which masks the object in the earlier test. This is functionally equivalent to overwriting the object as far as the later test is concerned.</p>
-<p>For the most part this environment trickery should be transparent to the user. The <code>ls</code> function is specially modified to, among other things, list objects in all the parent test environments. But there are exceptions to this “transparency”. The simplest exception is that you can not actually remove an object created in an earlier test (well, it is possible, but the how isn’t documented and you are advised not to attempt it). Here is a more complex exception:</p>
+<p>For the most part this environment trickery should be transparent to the user. An exception is the masking of <code>ls</code> and <code>traceback</code> with versions that account for the special nature of the <code>unitizer</code> REPL. Another is that you can not remove an object created in an earlier test with <code>rm</code> (well, it is possible, but the how isn’t documented and you are advised not to attempt it). Here is a more complex exception:</p>
 <pre><code>a &lt;- function() b()
+NULL                 # Prevent `a` and `b` being part of the same test
 b &lt;- function() TRUE
 a()</code></pre>
-<p>In this case, when we evaluate <code>a()</code> we must step back two environments to find <code>a</code>, but that’s okay. The problem is that once inside <code>a</code>, we must now evaluate <code>b()</code>, but <code>b</code> is defined in a child environment, not a parent environment so R’s object lookup fails.</p>
-<p>It turns out the above example actually works because as noted in <a href="u2_tests.html">details on tests vignette</a>, environments are only defined for tests, and neither the <code>a</code> or <code>b</code> assignments are tests, so both <code>a</code> and <code>b</code> are assigned to the environment of the <code>a()</code> call. However, this really breaks:</p>
-<pre><code>a &lt;- function() b()
-NULL
-b &lt;- function() TRUE
-a()</code></pre>
-<p>Since NULL is a valid test, <code>a</code> is assigned to the environment associated with the <code>NULL</code> line, and <code>b</code> is assigned to the <code>a()</code> test environment, the above test fails because <code>b</code> is not found and the illusion is shattered [DEV NOTE: CHECK THIS EXAMPLE].</p>
+<p>In this case, when we evaluate <code>a()</code> we must step back two environments to find <code>a</code>, but that’s okay. The problem is that once inside <code>a</code>, we must now evaluate <code>b()</code>, but <code>b</code> is defined in a child environment, not a parent environment so R’s object lookup fails. If we remove the NULL this would work, but only because neither the <code>a</code> or <code>b</code> assignments are tests, so both <code>a</code> and <code>b</code> would be assigned to the environment of the <code>a()</code> call (see <a href="u2_tests.html">details on tests vignette</a>).</p>
 <p>If you are getting weird “object not found” errors when you run your tests, but the same code does not generate those errors when run directly in the command line, this illusion could be failing you. In those situations, make sure that you assign all the variables necessary right ahead of the test so they will all get stored in the same environment.</p>
 </div>
 <div id="the-parent-environment" class="section level3">
