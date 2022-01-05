@@ -15,6 +15,19 @@
 
 <title>unitizeR - Reproducible Tests</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -238,19 +251,22 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="TOC">
 <ul>
-<li><a href="#managing-state">Managing State</a><ul>
+<li><a href="#managing-state">Managing State</a>
+<ul>
 <li><a href="#reproducibility">Reproducibility</a></li>
 <li><a href="#batch-evaluation-and-deferred-review">Batch Evaluation and Deferred Review</a></li>
 <li><a href="#enabling-state-management">Enabling State Management</a></li>
 </ul></li>
-<li><a href="#workspace-and-evaluation-environments">Workspace And Evaluation Environments</a><ul>
+<li><a href="#workspace-and-evaluation-environments">Workspace And Evaluation Environments</a>
+<ul>
 <li><a href="#test-environments">Test Environments</a></li>
 <li><a href="#the-parent-environment">The Parent Environment</a></li>
 <li><a href="#package-namespace-as-parent-environment">Package Namespace as Parent Environment</a></li>
 <li><a href="#issues-with-reference-objects">Issues With Reference Objects</a></li>
 <li><a href="#patchwork-reference-environments">Patchwork Reference Environments</a></li>
 </ul></li>
-<li><a href="#clean-search-paths">Clean Search Paths</a><ul>
+<li><a href="#clean-search-paths">Clean Search Paths</a>
+<ul>
 <li><a href="#description-implementation">Description / Implementation</a></li>
 <li><a href="#potential-issues">Potential Issues</a></li>
 </ul></li>
@@ -295,7 +311,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="enabling-state-management" class="section level3">
 <h3>Enabling State Management</h3>
-<p>You can turn on the “suggested” state management level to manage the first four elements of state listed in the previous section. To do so, use <code>unitize(..., state='suggested')</code> or <code>options(unitizer.state='suggested')</code>. Be sure to read <code>?unitizerState</code> before you enable this setting as there are cases when state management may not work.</p>
+<p>You can turn on the “suggested” state management level to manage the first four elements of state listed in the previous section. To do so, use <code>unitize(..., state=&#39;suggested&#39;)</code> or <code>options(unitizer.state=&#39;suggested&#39;)</code>. Be sure to read <code>?unitizerState</code> before you enable this setting as there are cases when state management may not work.</p>
 </div>
 </div>
 <div id="workspace-and-evaluation-environments" class="section level2">
@@ -320,7 +336,7 @@ a()</code></pre>
                        /
 TestEnv --&gt; UnitizerEnv</code></pre>
 <p>This means that objects in the global environment / workspace will not affect your tests.</p>
-<p>Unfortunately implementing this structure is not trivial because we need to ensure <code>UnitizerEnv</code> stays pointed at the environment just below <code>.GlobalEnv</code> even as tests modify the search path by calling <code>library</code>/<code>attach</code>/<code>detach</code>, etc. To achieve this <code>unitizer</code> traces <code>base::library</code>, <code>base::attach</code>, and <code>base::detach</code> <strong>when state tracking is enabled</strong> and <strong>only when <code>unitizer</code> is running</strong>. Any time any of those functions is called, <code>unitizer</code> updates the parent of <code>UnitizerEnv</code> to be the second environment on the search path ( i.e. the parent of <code>.GlobalEnv</code>). So, for example, if a test calls <code>library(z)</code>, the new search path would look like so:</p>
+<p>Unfortunately implementing this structure is not trivial because we need to ensure <code>UnitizerEnv</code> stays pointed at the environment just below <code>.GlobalEnv</code> even as tests modify the search path by calling <code>library</code>/<code>attach</code>/<code>detach</code>, etc. To achieve this <code>unitizer</code> traces <code>base::library</code>, <code>base::attach</code>, and <code>base::detach</code> <strong>when state tracking is enabled</strong> and <strong>only when <code>unitizer</code> is running</strong>. Any time any of those functions is called, <code>unitizer</code> updates the parent of <code>UnitizerEnv</code> to be the second environment on the search path (i.e. the parent of <code>.GlobalEnv</code>). So, for example, if a test calls <code>library(z)</code>, the new search path would look like so:</p>
 <pre><code>             .GlobalEnv
                        \
                         +--&gt; package:y --&gt; package:x --&gt; ... --&gt; Base

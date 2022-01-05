@@ -15,6 +15,19 @@
 
 <title>unitizeR - The Interactive Environment</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -238,18 +251,21 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="TOC">
 <ul>
-<li><a href="#overview">Overview</a><ul>
+<li><a href="#overview">Overview</a>
+<ul>
 <li><a href="#unitize-vs-review"><code>unitize</code> vs <code>review</code></a></li>
 <li><a href="#example-set-up">Example Set-up</a></li>
 </ul></li>
 <li><a href="#unitizer-commands"><code>unitizer</code> Commands</a></li>
-<li><a href="#test-navigation">Test Navigation</a><ul>
+<li><a href="#test-navigation">Test Navigation</a>
+<ul>
 <li><a href="#selecting-a-test-to-review">Selecting A Test to Review</a></li>
 <li><a href="#finalizing-unitizer">Finalizing <code>unitizer</code></a></li>
 <li><a href="#quitting-unitizer">Quitting <code>unitizer</code></a></li>
 <li><a href="#differences-in-review-mode">Differences in <code>review</code> Mode</a></li>
 </ul></li>
-<li><a href="#evaluating-expressions-at-the-unitizer-prompt">Evaluating Expressions at the <code>unitizer</code> Prompt</a><ul>
+<li><a href="#evaluating-expressions-at-the-unitizer-prompt">Evaluating Expressions at the <code>unitizer</code> Prompt</a>
+<ul>
 <li><a href="#as-compared-to-the-standard-r-prompt">As Compared To The Standard R Prompt</a></li>
 <li><a href="#new-and-.ref"><code>.new</code> and <code>.ref</code></a></li>
 <li><a href="#ls"><code>ls</code></a></li>
@@ -342,7 +358,7 @@ unitizer&gt;</code></pre>
 # original tests so they fail.  If you need more detail than the
 # provided diff you may use `.new`/`.NEW` or `.ref`/`.REF`.
 #
-# You should reject these tests by typing 'N' at the prompt since
+# You should reject these tests by typing &#39;N&#39; at the prompt since
 # they are incorrect.
 
 &gt; res
@@ -370,7 +386,7 @@ unitizer&gt;</code></pre>
 
 = Finalize Unitizer ============================================================
 
-You will IRREVERSIBLY modify 'tests/unitizer/fastlm1.unitizer' by:
+You will IRREVERSIBLY modify &#39;tests/unitizer/fastlm1.unitizer&#39; by:
 - Replacing 1 out of 2 failed tests
 
 Update unitizer ([Y]es, [N]o, [P]rev, [B]rowse, [R]erun)?
@@ -453,11 +469,11 @@ attr(,&quot;class&quot;)
 [1] &quot;fastlm&quot;</code></pre>
 <p>Note that at times when you use <code>ls</code> at the <code>unitizer</code> promopt you may see something along the lines of:</p>
 <pre><code>$`objects in ref test env:`
-[1] &quot;res&quot; &quot;x*&quot;   &quot;y'&quot;</code></pre>
-<p>where object names have symbols such as <code>*</code> or <code>'</code> appended to them. This happens because <code>unitizer</code> does not store the entire environment structure of the reference tests. Here is a description of the possible situations you can run into:</p>
+[1] &quot;res&quot; &quot;x*&quot;   &quot;y&#39;&quot;</code></pre>
+<p>where object names have symbols such as <code>*</code> or <code>&#39;</code> appended to them. This happens because <code>unitizer</code> does not store the entire environment structure of the reference tests. Here is a description of the possible situations you can run into:</p>
 <ul>
 <li><code>*</code> Object existed during reference test evaluation, but is no longer available</li>
-<li><code>'</code> Object existed during reference test evaluation, and still does, but it has a different value than it did during reference test evaluation</li>
+<li><code>&#39;</code> Object existed during reference test evaluation, and still does, but it has a different value than it did during reference test evaluation</li>
 <li><code>**</code> Object exists now, but did not exist during reference test evaluation</li>
 </ul>
 <p>For more discussion see <code>?&quot;healEnvs,unitizerItems,unitizer-method&quot;</code> and the discussion of <a href="u4_reproducible-tests.html#patchwork-reference-environments">Patchwork Reference Environments</a>.</p>
@@ -466,7 +482,7 @@ attr(,&quot;class&quot;)
 </div>
 <div id="traceback-.traceback" class="section level2">
 <h2><code>traceback</code> / <code>.traceback</code></h2>
-<p>Errors that occur during test evaluation are handled, so they do not register in the normal R traceback mechanism. <code>unitizer</code> stores the traces from the test evaluation and makes them available via internal versions of <code>traceback</code>/<code>.traceback</code> that mask the base ones at the interactive <code>unitizer</code> prompt. They behave similarly but not identically to the <code>base</code> counterparts. In particular, parameter <code>x</code> must be NULL. You can access the <code>base</code> versions with e.g. <code>base::traceback</code>, but those will not display any tracebacks generated by <code>unitizer</code>-evaluated code.</p>
+<p>Errors that occur during test evaluation are handled, so they do not register in the normal R traceback mechanism. <code>unitizer</code> stores the traces from the test evaluation and makes them available via internal versions of <code>traceback</code>/<code>.traceback</code> that mask the base ones at the interactive <code>unitizer</code> prompt. They behave similarly but not identically to the <code>base</code> counterparts. In particular, parameter <code>x</code> must be NULL. You can access the <code>base</code> versions with e.g. <code>base::traceback</code>, but those will not display any tracebacks generated by <code>unitizer</code>-evaluated code.</p>
 </div>
 <div id="unitize_dir" class="section level2">
 <h2><code>unitize_dir</code></h2>
@@ -476,7 +492,7 @@ attr(,&quot;class&quot;)
 Inferred test directory location: private/var/folders/56/qcx6p6f94695mh7yw-
 q9m6z_80000gq/T/RtmpJO7kjd/file43ac57df6164/unitizer.fastlm/tests/unitizer
 
-Summary of files in common directory 'tests/unitizer':
+Summary of files in common directory &#39;tests/unitizer&#39;:
                        Pass Fail  New
 *1.         fastlm1.R     -    -    4
 *2.         fastlm2.R     -    -    1
@@ -486,12 +502,12 @@ Summary of files in common directory 'tests/unitizer':
 Legend:
 * `unitizer` requires review
 
-Type number of unitizer to review, 'A' to review all that require review
+Type number of unitizer to review, &#39;A&#39; to review all that require review
 unitizer&gt;</code></pre>
 <p>Each listing corresponds to a test file. If you were to type <code>1</code> at the prompt then you would see the equivalent of the <code>unitize</code> process in the demo, since “fastlm1.R” is the file we <code>unitize</code> in the demo. The <code>*</code> ahead of each file indicates that the file has tests that require review. In this case, all the files have new tests. After we type <code>1</code> and go through the <code>unitize</code> process for “fastlm1.R” we are returned to the <code>unitize_dir</code> prompt:</p>
 <pre><code>unitizer updated
 
-Summary of files in common directory 'tests/unitizer':
+Summary of files in common directory &#39;tests/unitizer&#39;:
                        Pass Fail  New
 $1.         fastlm1.R     ?    ?    ?
 *2.         fastlm2.R     -    -    1
@@ -502,13 +518,13 @@ Legend:
 * `unitizer` requires review
 $ `unitizer` has been updated and needs to be re-evaluted to recompute summary
 
-Type number of unitizer to review, 'A' to review all that require review, 'R' to
+Type number of unitizer to review, &#39;A&#39; to review all that require review, &#39;R&#39; to
 re-run all updated
 unitizer&gt;</code></pre>
 <p>Because we updated “fastlm.R”, the statistics <code>unitize_dir</code> collected when it first ran all the tests are out of date, which is why they show up as question marks. The <code>$</code> also indicates that “fastlm1.R” stats are out of date. There is nothing wrong with this, and you do not need to do anything about it, but if you want you can re-run any unitizers that need to be updated by typing “R” at the prompt. This is what happens if we do so:</p>
 <pre><code>unitizer&gt; R
 
-Summary of files in common directory 'tests/unitizer':
+Summary of files in common directory &#39;tests/unitizer&#39;:
                        Pass Fail  New
  1.         fastlm1.R     4    -    -
 *2.         fastlm2.R     -    -    1
@@ -517,7 +533,7 @@ Summary of files in common directory 'tests/unitizer':
                           4    -    4
 * `unitizer` requires review
 
-Type number of unitizer to review, 'A' to review all that require review
+Type number of unitizer to review, &#39;A&#39; to review all that require review
 unitizer&gt;</code></pre>
 <p>You can now see that we added all the tests, and upon re-running, they all passed since the source code for <code>unitizer.fastlm</code> has not changed. Notice how there is no <code>*</code> ahead of the first test anymore.</p>
 <p>Another option for reviewing tests is to type “A” at the prompt, which would cause <code>unitize_dir</code> to put you through each test file that requires review in sequence.</p>

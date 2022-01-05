@@ -15,6 +15,19 @@
 
 <title>unitizeR - Test Details</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -238,22 +251,26 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="TOC">
 <ul>
-<li><a href="#understanding-tests">Understanding Tests</a><ul>
+<li><a href="#understanding-tests">Understanding Tests</a>
+<ul>
 <li><a href="#test-outcomes">Test Outcomes</a></li>
 <li><a href="#what-constitutes-a-test">What Constitutes a Test?</a></li>
 <li><a href="#unitizer-test-components"><code>unitizer</code> Test Components</a></li>
 </ul></li>
-<li><a href="#sections">Sections</a><ul>
+<li><a href="#sections">Sections</a>
+<ul>
 <li><a href="#untizer_sect"><code>untizer_sect</code></a></li>
 <li><a href="#controlling-test-comparison">Controlling Test Comparison</a></li>
 </ul></li>
-<li><a href="#special-semantics">Special Semantics</a><ul>
+<li><a href="#special-semantics">Special Semantics</a>
+<ul>
 <li><a href="#almost-like-source">Almost Like <code>source</code></a></li>
 <li><a href="#on.exit"><code>on.exit</code></a></li>
 <li><a href="#evaluation-environments">Evaluation Environments</a></li>
 <li><a href="#options-and-streams">Options and Streams</a></li>
 </ul></li>
-<li><a href="#other-details">Other Details</a><ul>
+<li><a href="#other-details">Other Details</a>
+<ul>
 <li><a href="#matching-tests">Matching Tests</a></li>
 <li><a href="#commenting-tests">Commenting Tests</a></li>
 </ul></li>
@@ -320,7 +337,7 @@ unitizer_sect(&quot;Advanced Tests&quot;, {
 <p>Now re-running <code>unitizer</code> segments everything by section (note, first few lines are set-up):</p>
 <pre><code>(.unitizer.fastlm &lt;- copy_fastlm_to_tmpdir())
 update_fastlm(.unitizer.fastlm, version=&quot;0.1.2&quot;)
-install.packages(.unitizer.fastlm, repos=NULL, type='src', quiet=TRUE)
+install.packages(.unitizer.fastlm, repos=NULL, type=&#39;src&#39;, quiet=TRUE)
 unitize(file.path(.unitizer.fastlm, &quot;tests&quot;, &quot;unitizer&quot;, &quot;unitizer.fastlm.R&quot;))
 
 +------------------------------------------------------------------------------+
@@ -372,7 +389,7 @@ unitize(file.path(.unitizer.fastlm, &quot;tests&quot;, &quot;unitizer&quot;, &qu
 <div id="on.exit" class="section level3">
 <h3><code>on.exit</code></h3>
 <p>Each top-level statement statement, or top-level statement within a <code>unitizer_sect</code> (e.g. anything considered a test), is evaluated directly with <code>eval</code> in its own environment. This means any <code>on.exit</code> expressions will be executed when the top-level expression that defines them is done executing. For example, it is not possible to set an <code>on.exit(...)</code> for an entire <code>unitizer_sect()</code> block, although it is possible to set it for a single sub-expression:</p>
-<pre><code>unitizer_sect('on.exit example', {
+<pre><code>unitizer_sect(&#39;on.exit example&#39;, {
   d &lt;- c &lt;- b &lt;- 1
   on.exit(b &lt;- 2)
   b                  # == 2!
