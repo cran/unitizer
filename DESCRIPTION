@@ -5,7 +5,7 @@ Description: Simplifies regression tests by comparing objects produced by test
     the tests pass, otherwise execution stops with error details.  If in
     interactive mode, tests can be reviewed through the provided interactive
     environment.
-Version: 1.4.17
+Version: 1.4.18
 Authors@R: c(
     person(
     "Brodie", "Gaslam", email="brodie.gaslam@yahoo.com",
@@ -31,11 +31,11 @@ Collate: 'asciiml.R' 'capture.R' 'is.R' 'global.R' 'change.R'
         'state.compare.R' 'traceback.R' 'translate.R' 'unitize.R'
         'unitize.core.R' 'unitizer-package.R' 'unitizer.add.R'
         'upgrade.R'
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2022-01-09 13:44:46 UTC; bg
+Packaged: 2022-03-23 01:52:24 UTC; bg
 Author: Brodie Gaslam [aut, cre],
   R Core Team [cph] (Traceback function sources.)
 Maintainer: Brodie Gaslam <brodie.gaslam@yahoo.com>
 Repository: CRAN
-Date/Publication: 2022-01-09 22:40:02 UTC
+Date/Publication: 2022-03-23 13:20:02 UTC

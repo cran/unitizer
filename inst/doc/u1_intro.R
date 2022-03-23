@@ -13,8 +13,8 @@
 #  test_me(14523.2342520)    # could be deparsed differently
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  chr <- "hello\u044F"
-#  fun_to_test(chr)
+#  chr <- "hello\u044F"      # assignments are not considered tests
+#  fun_to_test(chr)          # safe
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  fun_to_test("hello\u044F") # could be deparsed differently
