@@ -30,13 +30,13 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
@@ -252,48 +252,44 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <div id="TOC">
 <ul>
-<li><a href="#storing-unitized-tests">Storing <code>unitize</code>d
-Tests</a>
+<li><a href="#storing-unitized-tests" id="toc-storing-unitized-tests">Storing <code>unitize</code>d Tests</a>
 <ul>
-<li><a href="#default-mode-is-to-store-tests-in-rds-files">Default Mode
-is to Store Tests in <code>rds</code> Files</a></li>
-<li><a href="#file-space-considerations">File Space
-Considerations</a></li>
-<li><a href="#backup-your-unitizer-stores">Backup Your
-<code>unitizer</code> Stores</a></li>
-<li><a href="#alternate-store-locations">Alternate Store
-Locations</a></li>
+<li><a href="#default-mode-is-to-store-tests-in-rds-files" id="toc-default-mode-is-to-store-tests-in-rds-files">Default Mode is to
+Store Tests in <code>rds</code> Files</a></li>
+<li><a href="#file-space-considerations" id="toc-file-space-considerations">File Space Considerations</a></li>
+<li><a href="#backup-your-unitizer-stores" id="toc-backup-your-unitizer-stores">Backup Your <code>unitizer</code>
+Stores</a></li>
+<li><a href="#alternate-store-locations" id="toc-alternate-store-locations">Alternate Store Locations</a></li>
 </ul></li>
-<li><a href="#version-control-and-unitizer">Version Control and
-Unitizer</a>
+<li><a href="#version-control-and-unitizer" id="toc-version-control-and-unitizer">Version Control and Unitizer</a>
 <ul>
-<li><a href="#committing-binary-files">Committing Binary Files</a></li>
-<li><a href="#collaborating-with-unitizer">Collaborating with
+<li><a href="#committing-binary-files" id="toc-committing-binary-files">Committing Binary Files</a></li>
+<li><a href="#collaborating-with-unitizer" id="toc-collaborating-with-unitizer">Collaborating with
 Unitizer</a></li>
 </ul></li>
-<li><a href="#modifying-an-existing-unitizer">Modifying an Existing
+<li><a href="#modifying-an-existing-unitizer" id="toc-modifying-an-existing-unitizer">Modifying an Existing
 Unitizer</a>
 <ul>
-<li><a href="#review"><code>review</code></a></li>
-<li><a href="#editcalls"><code>editCalls</code></a></li>
-<li><a href="#split"><code>split</code></a></li>
+<li><a href="#review" id="toc-review"><code>review</code></a></li>
+<li><a href="#editcalls" id="toc-editcalls"><code>editCalls</code></a></li>
+<li><a href="#split" id="toc-split"><code>split</code></a></li>
 </ul></li>
-<li><a href="#troubleshooting">Troubleshooting</a>
+<li><a href="#troubleshooting" id="toc-troubleshooting">Troubleshooting</a>
 <ul>
-<li><a href="#after-running-unitizer-output-no-longer-shows-on-screen">After
+<li><a href="#after-running-unitizer-output-no-longer-shows-on-screen" id="toc-after-running-unitizer-output-no-longer-shows-on-screen">After
 Running <code>unitizer</code> Output No Longer Shows on Screen</a></li>
-<li><a href="#unitizer-freezes-and-pops-up-selection"><code>unitizer</code>
+<li><a href="#unitizer-freezes-and-pops-up-selection" id="toc-unitizer-freezes-and-pops-up-selection"><code>unitizer</code>
 Freezes and Pops up “Selection:”</a></li>
-<li><a href="#running-unitizer-crashes-r">Running <code>unitizer</code>
+<li><a href="#running-unitizer-crashes-r" id="toc-running-unitizer-crashes-r">Running <code>unitizer</code>
 Crashes R</a></li>
-<li><a href="#different-outcomes-in-interactive-vs.-non-interactive">Different
+<li><a href="#different-outcomes-in-interactive-vs.-non-interactive" id="toc-different-outcomes-in-interactive-vs.-non-interactive">Different
 Outcomes in Interactive vs. Non Interactive</a></li>
 </ul></li>
-<li><a href="#other-topics">Other Topics</a>
+<li><a href="#other-topics" id="toc-other-topics">Other Topics</a>
 <ul>
-<li><a href="#running-unitize-within-error-handling-blocks">Running
+<li><a href="#running-unitize-within-error-handling-blocks" id="toc-running-unitize-within-error-handling-blocks">Running
 <code>unitize</code> Within Error Handling Blocks</a></li>
-<li><a href="#overridden-functions">Overridden Functions</a></li>
+<li><a href="#overridden-functions" id="toc-overridden-functions">Overridden Functions</a></li>
 </ul></li>
 </ul>
 </div>
