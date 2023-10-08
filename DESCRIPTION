@@ -5,7 +5,7 @@ Description: Simplifies regression tests by comparing objects produced by test
     the tests pass, otherwise execution stops with error details.  If in
     interactive mode, tests can be reviewed through the provided interactive
     environment.
-Version: 1.4.19
+Version: 1.4.20
 Authors@R: c(
     person(
     "Brodie", "Gaslam", email="brodie.gaslam@yahoo.com",
@@ -33,9 +33,9 @@ Collate: 'asciiml.R' 'capture.R' 'is.R' 'global.R' 'change.R'
         'upgrade.R'
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-03-20 19:34:48 UTC; bg
+Packaged: 2023-10-08 01:22:39 UTC; bg
 Author: Brodie Gaslam [aut, cre],
   R Core Team [cph] (Traceback function sources.)
 Maintainer: Brodie Gaslam <brodie.gaslam@yahoo.com>
 Repository: CRAN
-Date/Publication: 2023-03-20 23:50:02 UTC
+Date/Publication: 2023-10-08 15:00:02 UTC
