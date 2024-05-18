@@ -1,7 +1,7 @@
 2cfa4a05d36bbbac9a32d946cbfa4849 *COPYING
-8680dd8c983fbced5cda5a9e83ffe2a6 *DESCRIPTION
+4b355cba098d69afe2c37ff35efbee83 *DESCRIPTION
 507bb205bddc86705822279e3377575a *NAMESPACE
-e64f8fe735012eb8aa2c11a6805dc5a8 *NEWS.md
+2f0ca5637d749680e046e1aa0e3531b4 *NEWS.md
 26f577bdf6d96f0fc1145b14286b119f *R/asciiml.R
 9e2a90ccc1b6d8f4034458caefb0eee0 *R/browse.R
 6fcd358bcb479628b86dfa7952b21507 *R/browse.struct.R
@@ -58,7 +58,7 @@ b7b977bc5e5ba8b88c2dbf4184cd2709 *inst/doc/rmdhunks/intro.Rmd
 2dc992726ac3489077158bd4b0bfe9d8 *inst/doc/u0_unitizer_index.html
 babef6faaaf5092392b79139e9995eba *inst/doc/u1_intro.R
 8a12b56418b1c25e0b90bc96eb72111c *inst/doc/u1_intro.Rmd
-ba7e413d8d781ec8d562905b0ac64597 *inst/doc/u1_intro.html
+1426f02d57b12dd22e693176a6fcfa6b *inst/doc/u1_intro.html
 89a772d34ed168ddab967a75f78f5fb6 *inst/doc/u2_tests.Rmd
 1aa57d0c79baa1ea06738620539734e8 *inst/doc/u2_tests.html
 aafc9cd6502d3b16e5f1d85b5508de6d *inst/doc/u3_interactive-env.Rmd
@@ -245,6 +245,7 @@ fe88cf9470716038e9e99b9168be2820 *tests/_helper/unitizers/trivial.unitizer.0.4.2
 f74b19322452dc0e0b9059ab4ebbe536 *tests/aammrtf/init.R
 2f7d409c5b7393f50e90c14a18de15aa *tests/aammrtf/mock.R
 20df77e148ec956f23e427e464613f61 *tests/aammrtf/ref.R
+9395e6af58ae81b300962f1c8642a7b3 *tests/not-cran.R
 61fdff310c91b4e7a7c9192fa289779f *tests/t-browser.R
 e40682fb1d2a0259917a9216529f9d14 *tests/t-browser.Rout.save
 68caa9cfe87c9481e5d00ade7c849ce8 *tests/t-capture.R
@@ -281,8 +282,8 @@ f9ba6b7a38c47141de50c0c73596c610 *tests/t-misc.R
 267fb047561dfaf5674dde7118db5df6 *tests/t-random.Rout.save
 ebab94559844559230171c8c3067d5d3 *tests/t-rename.R
 28203e74f04708dd0ce525e713d8a35a *tests/t-rename.Rout.save
-08e1c1da4ab5eee6439eb6e4c6067137 *tests/t-repairenvs.R
-d6e59790b24f464a78e1949cb58d88c2 *tests/t-repairenvs.Rout.save
+39199f202351b7238ee467363b6d0d19 *tests/t-repairenvs.R
+906a7cd33db04bd7b3bff981a29a2dea *tests/t-repairenvs.Rout.save
 87b617a44642e8b207e332228af86cdb *tests/t-search.R
 bf4fbdcbf84486340896e3542c593b96 *tests/t-search.Rout.save
 5252802d2c1ba6f538e1d7df62614bf2 *tests/t-section.R
