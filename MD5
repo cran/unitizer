@@ -1,7 +1,7 @@
 2cfa4a05d36bbbac9a32d946cbfa4849 *COPYING
-f2a2af18799e392853874fb0e8e29e54 *DESCRIPTION
+11a25141dd2e652c6a8bfb7bd46ab119 *DESCRIPTION
 eecebe91154b7184dca264536e65e86f *NAMESPACE
-e31b84aac6aa467ebbba040c4988debe *NEWS.md
+13c33251af58036f2974625ecd01d9ca *NEWS.md
 26f577bdf6d96f0fc1145b14286b119f *R/asciiml.R
 9e2a90ccc1b6d8f4034458caefb0eee0 *R/browse.R
 6fcd358bcb479628b86dfa7952b21507 *R/browse.struct.R
@@ -9,7 +9,7 @@ e31b84aac6aa467ebbba040c4988debe *NEWS.md
 9d81208f28b2794bdaa5d1ba95e5ed6c *R/change.R
 9b969b02d845951d29bfe1c82d6b6832 *R/class_unions.R
 e2fa7f73426e4c87e9d0901aa5aaa36b *R/conditions.R
-75dfa8e67d02e63b4cb1df1ddc842b91 *R/demo.R
+cc57b7bab112b33d43e62161b984a940 *R/demo.R
 4af7b1f695a97ab49b2e2e3daa283c5f *R/deparse.R
 07f52ed9b4f33c2ced0066775c0311ba *R/diff.R
 ed995625c512758caee2f804f1ed2cc2 *R/exec.R
@@ -21,7 +21,7 @@ c3b4ac58790d089a5e84db8544887587 *R/is.R
 ee09017a2489c07413fd59f0fef6f2ab *R/item.R
 ee6752bcbdfcff00a7ea51d93f6009da *R/item.sub.R
 a06bef00d3690324444cee9e42876684 *R/list.R
-12404a98e87a8418f0c0ef97b3d9ce83 *R/load.R
+a901a17e867a96651e2c1ddb2dbfbd96 *R/load.R
 f660abf27c4ff80d6cc3e483d0895413 *R/ls.R
 43803a353f6965a0dbdb53e4c1cd002c *R/misc.R
 7a725ff74a3d57620a44536e023daf5b *R/onload.R
@@ -48,7 +48,7 @@ bad98055c53de0ff4f7fbc657b585833 *R/unitizer-package.R
 852abcca628a1808c9b3a9d506e7ac78 *R/unitizer.add.R
 736f8c5a66e0b58dde126568d0d875c8 *R/upgrade.R
 a3f4bb023c43c46a4da14b847f894599 *README.md
-b79c6b8f41ba4d61528f2615792f013c *build/vignette.rds
+80b71bbcc7761f59c5cdb0359f3f3e9d *build/vignette.rds
 8fbb6fba3b80b2c02660bc50e8753b67 *demo/00Index
 456084abc585ba5f7a706a117c286b21 *demo/unitizer.R
 b7b977bc5e5ba8b88c2dbf4184cd2709 *inst/doc/rmdhunks/intro.Rmd
@@ -188,7 +188,7 @@ c080e68ba5a9f448084ff91ccee784cd *man/unitizer_prompt.Rd
 c220b88c58ecaae62a34c93d802b3e7a *man/unitizer_sect.Rd
 92bb6eefe96bf4bdf4199e403a8b2c4e *man/valid_names.Rd
 40335497dc288ca4396e487866008f3e *man/validate_pre_post.Rd
-6a16942cf4f5c3302a72a152836a2532 *tests/_helper/init.R
+6395c84ccf48571477cf02c047c04aba *tests/_helper/init.R
 ae9aaf70ff7a7c20f7283b9967e6fb7a *tests/_helper/pkgs.R
 0ee1899c8da0b6de273be5f3e30dd680 *tests/_helper/ref-objs/capture/100.rds
 87d719512503ff83c92dd1d54e7709c4 *tests/_helper/ref-objs/capture/200.rds
@@ -245,7 +245,6 @@ fe88cf9470716038e9e99b9168be2820 *tests/_helper/unitizers/trivial.unitizer.0.4.2
 f74b19322452dc0e0b9059ab4ebbe536 *tests/aammrtf/init.R
 2f7d409c5b7393f50e90c14a18de15aa *tests/aammrtf/mock.R
 20df77e148ec956f23e427e464613f61 *tests/aammrtf/ref.R
-9395e6af58ae81b300962f1c8642a7b3 *tests/not-cran.R
 61fdff310c91b4e7a7c9192fa289779f *tests/t-browser.R
 e40682fb1d2a0259917a9216529f9d14 *tests/t-browser.Rout.save
 68caa9cfe87c9481e5d00ade7c849ce8 *tests/t-capture.R
